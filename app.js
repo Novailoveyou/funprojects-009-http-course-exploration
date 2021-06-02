@@ -6,6 +6,7 @@ const PORT = process.env.PORT || 5000
 
 app.use(express.json()) // just an express thing so that req.body works
 app.use(express.urlencoded({ extended: false })) // just an express thing so that req.body works for form submissions
+app.use(express.static('public'))
 
 app.get('/', (req, res) => {
   // res.send('Hello From Express')
@@ -37,6 +38,21 @@ app.post('/login', (req, res) => {
   }
 
   res.send('Logged In')
+})
+
+app.put('/post/:id', (req, res) => {
+  // DATABSE STUFF to update something like a post
+
+  res.json({
+    id: req.params.id,
+    title: req.body.title
+  })
+})
+
+app.delete('/post/:id', (req, res) => {
+  // DATABSE STUFF to update something like a post
+
+  res.json({ msg: `Post ${req.params.id} deleted` })
 })
 
 app.listen(PORT, () => console.log(`Server is started on port ${PORT}`))
