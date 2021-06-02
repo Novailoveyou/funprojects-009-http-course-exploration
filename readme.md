@@ -60,7 +60,7 @@ would be json
 
 ### JSON Content-Type best practices
 
-However it's recommended to use `.json()` to send json like so 
+However it's recommended to use `.json()` to send json like so
 
 ```js
 res.json({ msg: 'Hello From Express' })
