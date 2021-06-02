@@ -27,4 +27,16 @@ app.post('/contact', (req, res) => {
   res.status(201).send(`Thank you ${req.body.name}`)
 })
 
+app.post('/login', (req, res) => {
+  if (!req.header('x-auth-token')) {
+    return res.status(400).send('No Token')
+  }
+
+  if (req.header('x-auth-token') !== '123456') {
+    return res.status(401).send('Not authorized')
+  }
+
+  res.send('Logged In')
+})
+
 app.listen(PORT, () => console.log(`Server is started on port ${PORT}`))

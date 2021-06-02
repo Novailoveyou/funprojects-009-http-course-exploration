@@ -24,20 +24,74 @@ npm i express && npm i nodemon -D
 
 ## Things I learned
 
-`res.send()` would always try to figure out the correct Content-Type the best it can
+### Multiple responses
 
-`res.send('Hello from Express')` would be html
+When having multiple responses make sure to put a `return` on before of all of them but the last one. You don't need a `return` only if it's a last one response
 
-`res.send({"msg": "Hello From Express"})` or `res.send({msg: 'Hello From Express'})` would be json
+### Auto Content-Type detection
 
-However it's recommended to use `.json()` to send json like so `res.json({ msg: 'Hello From Express' })` use `.json()`
+```js
+res.send()
+```
 
-`res.send(req.header('host'))` to send host
+would always try to figure out the correct Content-Type the best it can
 
-`res.send(req.header('user-agent'))` to send user agent
+### HTML Content-Type detection
 
-`res.send(req.rawHeaders)` to send all headers
+```js
+res.send('Hello from Express')
+```
 
-`res.send(req.body)` access data on a server from a client
+would be html
 
-`res.send(req.header('Content-Type'))` to send Content-Type header
+### JSON Content-Type detection
+
+```js
+res.send({"msg": "Hello From Express"})
+```
+
+or
+
+```js
+res.send({msg: 'Hello From Express'})
+```
+
+would be json
+
+### JSON Content-Type best practices
+
+However it's recommended to use `.json()` to send json like so 
+
+```js
+res.json({ msg: 'Hello From Express' })
+```
+
+### Sending host header
+
+```js
+res.send(req.header('host'))
+```
+
+### Sending user agent
+
+```js
+res.send(req.header('user-agent'))
+```
+
+### Sending all headers
+
+```js
+res.send(req.rawHeaders)
+```
+
+### Accessing data on a server from a client
+
+```js
+res.send(req.body)
+```
+
+### Sending Content-Type header
+
+```js
+res.send(req.header('Content-Type'))
+```
