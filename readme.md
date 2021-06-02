@@ -1,10 +1,10 @@
-# Realtime Chat With Users & Rooms - Socket.io, Node & Express
+# HTTP Crash Course & Exploration
 
 ## About
 
 This is me following Brad Traversy's [youtube video](https://youtu.be/iYM2zFP3Zn0)
 
-Year 2020
+Year 2019
 
 ## CLI
 
@@ -19,6 +19,5 @@ npm init -y
 Install dependencies
 
 ```zsh
-npm i express socket.io moment
-npm i nodemon -D
+npm i express && npm i nodemon -D
 ```
