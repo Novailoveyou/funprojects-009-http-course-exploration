@@ -17,7 +17,14 @@ app.get('/', (req, res) => {
 app.post('/contact', (req, res) => {
   // res.send(req.body)
   // res.send(req.body.name)
-  res.send(req.header('Content-Type'))
+  // res.send(req.header('Content-Type'))
+
+  if (!req.body.name) {
+    return res.status(400).send('Name is required')
+  }
+
+  // DATABASE STUFF
+  res.status(201).send(`Thank you ${req.body.name}`)
 })
 
 app.listen(PORT, () => console.log(`Server is started on port ${PORT}`))
